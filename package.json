@@ -1,0 +1,19 @@
+{
+  "name": "remeet",
+  "version": "1.0.0",
+  "description": "*English | [中文](README.zh.md)*",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jrathod9/Remeet.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jrathod9/Remeet/issues"
+  },
+  "homepage": "https://github.com/jrathod9/Remeet#readme"
+}
