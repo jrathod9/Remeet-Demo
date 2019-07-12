@@ -29,13 +29,14 @@ exports.getVC = (req, res) => {
   loginerror.push({ msg : 'Login/Signup first.'});
 
   if (req.user) {
-    res.render('/vc', {
+    res.render('videoconference', {
       title: ' Chat '
     });
   }
-  req.flash('errors',loginerror);
-  return res.redirect('/');
-
+  else{
+    req.flash('errors',loginerror);
+    return res.redirect('/');
+  }
 };
 
 /**
