@@ -1,16 +1,14 @@
 {
-  "name": "hackathon-starter",
-  "version": "5.1.4",
-  "description": "A boilerplate for Node.js web applications",
+  "name": "remeet-demo",
+  "version": "1.0.0",
+  "description": "",
   "repository": {
     "type": "git",
-    "url": "https://github.com/sahat/hackathon-starter.git"
+    "url": "https://github.com/jrathod9/Remeet-Demo.git"
   },
   "license": "MIT",
-  "author": "Sahat Yalkabov",
-  "contributors": [
-    "Yashar Fakhari (https://github.com/YasharF)"
-  ],
+  "author": "",
+  "contributors": [],
   "scripts": {
     "postinstall": "npm rebuild node-sass",
     "start": "node app.js",
