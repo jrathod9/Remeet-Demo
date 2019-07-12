@@ -1,0 +1,137 @@
+extends layout
+
+block content
+  head
+    
+    // ---- Include the above in your HEAD tag --------
+    title Chat
+    
+    link(rel='stylesheet', href='css/common.css')
+    link(rel='stylesheet', href='css/main.css')
+    link(rel='stylesheet', href='css/toastify.min.css')
+    link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.5.0/css/all.css', integrity='sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU', crossorigin='anonymous')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+    link(rel='stylesheet', type='text/css', href='https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css')
+    script(type='text/javascript', src='https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.js')
+    script(src='https://unpkg.com/wavesurfer.js')
+  // Coded With Love By Mutiullah Samim
+  body
+    nav.navbar.navbar-expand-lg.navbar-light.bg-light
+      button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+      #navbarSupportedContent.collapse.navbar-collapse
+        ul.navbar-nav.mr-auto
+          li.nav-item
+            a.nav-link(href='#') Previous Meetings
+          li.nav-item
+            a.nav-link(href='#') Settings
+        form#form.form-inline.my-2.my-lg-0
+          input#channel.form-control(type='text', name='channel')
+          button#join.btn.btn-raised.btn-primary.btn-lg(type='button')
+            i.glyphicon.glyphicon-plus
+            | join
+          button#leave.btn.btn-raised.btn-primary.btn-lg(type='button') LEAVE
+          .cad(style='display: none')
+            button#settings.btn.btn-raised.agora-expand-btn(data-toggle='collapse', data-target='#setting-collapse', aria-expanded='false', aria-controls='collapse')
+              | Advanced Settings
+            #setting-collapse.collapse(aria-labelledby='setting-collapse')
+              .card-body
+                .form-group
+                  label.bmd-label-floating(for='uid') UID
+                  input#uid.form-control(type='text', name='uid')
+                .form-group
+                  label.bmd-label-floating(for='cameraId') CAMERA
+                  select#cameraId.form-control(name='cameraId')
+                .form-group
+                  label.bmd-label-floating(for='microphoneId') MICROPHONE
+                  select#microphoneId.form-control(name='microphoneId')
+                .form-group
+                  label(for='mode') Mode
+                  .row.radio-list
+                    .radio
+                      label
+                        input(type='radio', name='mode', value='rtc')
+                        span.radio-label rtc
+                    .radio
+                      label
+                        input(type='radio', name='mode', value='live', checked='')
+                        span.radio-label live
+                .form-group
+                  label(for='mode') Codec
+                  .row.radio-list
+                    .radio
+                      label
+                        input(type='radio', name='codec', value='vp8')
+                        span.radio-label vp8
+                    .radio
+                      label
+                        input(type='radio', name='codec', value='h264', checked='')
+                        span.radio-label h264
+    .container-fluid.h-100
+      .row.justify-content-center.h-100
+        .col-md-8.col-xl-8.chat
+          .card.mb-sm-3.mb-md-0.contacts_card
+            video#recording(controls='', style='display:none; height:100%')
+            #video.video-grid
+              #local_stream.video-placeholder
+                #local_video_info.video-info
+            #waveform
+        .col-md-4.col-xl-4.chat
+          br
+          br
+          br
+          div
+            a#questions.btn.btn-raised.btn-primary.btn-lg
+              span Questions
+              span#questiontag.badge.notification 0
+            a#stats.btn.btn-raised.btn-primary.btn-lg
+              span Stats
+              span#statstag.badge.notification 0
+            a#todo.btn.btn-raised.btn-primary.btn-lg
+              span To-DOs
+              span#todotag.badge.notification 0
+          .card
+            .card-header.msg_head
+              .d-flex.bd-highlight
+                .topnav
+                  input#search(type='text', placeholder='Search..')
+                // <div class="video_cam">
+                // <span><i class="fas fa-video"></i></span>
+                // <span><i class="fas fa-phone"></i></span>
+                // </div>
+                // <span id="action_menu_btn"><i class="fas fa-ellipsis-v"></i></span>
+                .action_menu
+                  ul
+                    li
+                      i.fas.fa-user-circle
+                      |  View profile
+                    li
+                      i.fas.fa-users
+                      |  Add to close friends
+                    li
+                      i.fas.fa-plus
+                      |  Add to group
+                    li
+                      i.fas.fa-ban
+                      |  Block
+            .card-body.msg_card_body
+          .d-flex.justify-content-start.mb-4
+          .card-footer
+            .input-group
+              .input-group-append
+                span.input-group-text.attach_btn
+                  i.fas.fa-paperclip
+              textarea.form-control.type_msg(name='', placeholder='Type your message...')
+              .input-group-append
+                span.input-group-text.send_btn
+                  i.fas.fa-location-arrow
+    script(src='js/jquery.min.js')
+    script(src='js/popper.min.js')
+    script(src='js/toastify.js')
+    script(src='js/bootstrap-material-design.min.js')
+    script(src='js/AgoraRTCSDK-2.6.1.js')
+    script(src='js/common.js')
+    script(src='https://www.WebRTC-Experiment.com/RecordRTC.js')
+    script(src='js/agora_signal.js')
+    script(src='js/AgoraRTCSDK-2.6.1.js')
+    script(src='js/main.js')
