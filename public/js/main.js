@@ -1,7 +1,13 @@
+
+
 recognition = new webkitSpeechRecognition();
 recognition.continuous = true;
 recognition.lang = "en-IN";
 recognition.interimResults = true;
+
+
+
+
 function startTranscribe() {
     recognition.onstart = function () {
         console.info("started recognition");
@@ -165,6 +171,7 @@ function updateTags(){
 }
 function startrecording(){
   v = $("#video video");
+  console.log(v);
   try {
     mixer = new MultiStreamsMixer([v[0].captureStream(),v[1].captureStream()]);
 
@@ -355,6 +362,7 @@ function startrecording(){
            *      If you use a string as the user ID, the maximum length is 255 characters.
           **/
           rtc.client.join(data.token ? data.token : null, data.channel, data.uid ? data.uid : null, function (uid) {
+            console.log(data);
             Toast.notice("join channel: " + data.channel + " success, uid: " + uid);
             console.log("join channel: " + data.channel + " success, uid: " + uid);
             rtc.joined = true;
@@ -363,12 +371,16 @@ function startrecording(){
   
   
             // create local stream
+            console.log(data);
+            console.log(data.cameraId);
+            console.log(data.microphoneId);
+
             rtc.localStream = AgoraRTC.createStream({
               streamID: rtc.params.uid,
               audio: true,
               video: true,
               screen: false,
-              microphoneId: data.microphoneId,
+              microphoneId: "default",
               cameraId: data.cameraId
             })
   
@@ -382,15 +394,15 @@ function startrecording(){
               publish(rtc);
             }, function (err)  {
               Toast.error("stream init failed, please open console see more detail")
-              console.error("init local stream failed ", err);
+             // console.error("init local stream failed ", err);
             })
           }, function(err) {
             Toast.error("client join failed, please open console see more detail")
-            console.error("client join failed", err)
+           // console.error("client join failed", err)
           })
         }, (err) => {
           Toast.error("client init failed, please open console see more detail")
-          console.error(err);
+          console.log(err);
         });
       }
   
