@@ -1,7 +1,7 @@
 html
   head
 
-    
+    link(rel='stylesheet', href='css/demo.css')
     link(rel='stylesheet', href='css/common.css')
     link(rel='stylesheet', href='css/main.css')
     link(rel='stylesheet', href='css/toastify.min.css')
@@ -14,27 +14,30 @@ html
     link(rel='stylesheet', type='text/css', href='https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css')
     script(type='text/javascript', src='https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.js')
     script(src='https://unpkg.com/wavesurfer.js')
-  body(style = 'magrin: 0;padding:0;')
-    nav.navbar.navbar-expand-lg.navbar-light.bg-light(style = 'margin-bottom:4px;border-bottom:1px solid teal')      
-      a.navbar-brand(href='#') 
-        i.fas.fa-cube
-        | Remeet
+  // Coded With Love By Mutiullah Samim
+  body
+    nav.navbar.navbar-expand-lg.navbar-light.bg-light
+      a.navbar-brand(href='#') Remeet
       button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
         span.navbar-toggler-icon
       #navbarSupportedContent.collapse.navbar-collapse
         ul.navbar-nav.mr-auto
+          li.nav-item.active
+            a.nav-link(href='#')
+              | Home 
+              span.sr-only (current)
           li.nav-item
             a.nav-link(href='#') Previous Meetings
           li.nav-item
             a.nav-link(href='#') Settings
         form#form.form-inline.my-2.my-lg-0
-          input#channel.form-control(type='text', name='channel',style = 'margin-right:10px;')
-          button#join.btn.btn-primary.btn-md(type='button')
+          input#channel.form-control(type='text', name='channel')
+          button#join.btn.btn-raised.btn-primary.btn-lg(type='button')
             i.glyphicon.glyphicon-plus
             | join
-          button#leave.btn.btn-primary.btn-md(type='button') LEAVE
+          button#leave.btn.btn-raised.btn-primary.btn-lg(type='button') LEAVE
           .cad(style='display: none')
-            button#settings.btn.agora-expand-btn(data-toggle='collapse', data-target='#setting-collapse', aria-expanded='false', aria-controls='collapse')
+            button#settings.btn.btn-raised.agora-expand-btn(data-toggle='collapse', data-target='#setting-collapse', aria-expanded='false', aria-controls='collapse')
               | Advanced Settings
             #setting-collapse.collapse(aria-labelledby='setting-collapse')
               .card-body
@@ -69,7 +72,7 @@ html
                       label
                         input(type='radio', name='codec', value='h264', checked='')
                         span.radio-label h264
-    .container-fluid.h-100(style = 'background-color:#E7ECEF;')
+    .container-fluid.h-100
       .row.justify-content-center.h-100
         .col-md-8.col-xl-8.chat
           .card.mb-sm-3.mb-md-0.contacts_card
@@ -83,13 +86,13 @@ html
           br
           br
           div
-            a#questions.btn.btn-primary.btn-lg(style = 'background : #EFF8E2')
+            a#questions.btn.btn-raised.btn-primary.btn-lg
               span Questions
               span#questiontag.badge.notification 0
-            a#stats.btn.btn-primary.btn-lg(style = 'background : #EFF8E2')
+            a#stats.btn.btn-raised.btn-primary.btn-lg
               span Stats
               span#statstag.badge.notification 0
-            a#todo.btn.btn-primary.btn-lg(style = 'background : #EFF8E2')
+            a#todo.btn.btn-raised.btn-primary.btn-lg
               span To-DOs
               span#todotag.badge.notification 0
           .card
